@@ -449,16 +449,45 @@ footer {
 /* 更新履歴エリア */
 .manual-history {
     background: #f0f0f0;
-    padding: 10px 15px;
+    padding: 15px 20px; 
     margin-bottom: 30px;
     border-left: 4px solid #333;
     font-size: 0.85rem;
     color: #555;
 }
 
-.manual-history span {
-    margin-left: 10px;
+.manual-history dl {
+    display: grid;
+    grid-template-columns: 100px 1fr; 
+    gap: 12px 15px; 
+    margin: 0;
+}
+
+.manual-history dt {
+    font-weight: bold;
+    color: #666;
+}
+
+.manual-history dd {
+    margin: 0; 
     color: #333;
+    line-height: 1.5; 
+}
+
+/* スマホ対応（画面幅が狭い時） */
+@media (max-width: 480px) {
+    .manual-history dl {
+        grid-template-columns: 1fr; 
+        gap: 5px; 
+    }
+    
+    .manual-history dd {
+        margin-bottom: 15px; 
+    }
+    
+    .manual-history dd:last-child {
+        margin-bottom: 0;
+    }
 }
 
 /* 動画サムネイルと再生ボタン */

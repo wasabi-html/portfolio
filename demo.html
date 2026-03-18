@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <title>Portfolio | JS・コーディングをはじめ、ロゴデザイン、Vtuber素材などの作品を掲載しています。</title>
-    <meta name="description" content="ポートフォリオサイトです。JavaScriptを用いたWeb制作、コーディング実績、ロゴデザイン、Vtuber素材などの作品を掲載しています。">
+    <title>Portfolio | EC運用・LP改善・フロント実装の実績</title>
+    <meta name="description" content="ECサイト運用に関わるLP改善、フロント実装、業務効率化、UI改善の実績をまとめたポートフォリオです。">
     <link rel="canonical" href="https://wasabi-html.github.io/portfolio/demo.html">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wasabi-html.github.io/portfolio/demo.html">
     <meta property="og:title" content="Portfolio">
-    <meta property="og:description" content="JavaScriptを用いたWeb制作の実績をまとめたポートフォリオサイトです。">
+    <meta property="og:description" content="ECサイト運用に関わるLP改善、フロント実装、業務効率化、UI改善の実績をまとめたポートフォリオです。">
     <meta property="og:image" content="https://wasabi-html.github.io/portfolio/img/ogp.png">
     <meta property="og:site_name" content="ポートフォリオ">
     <meta property="og:locale" content="ja_JP">
@@ -28,8 +28,8 @@
             <nav class="menu-content">
                 <ul>
                     <li><a href="index.html">TOP</a></li>
-                    <li><a href="demo.html">実績（JS・コーディング）</a></li>
-                    <li><a href="other.html">Other Works (Graphic & Assets)</a></li>
+                    <li><a href="demo.html">実績（EC制作・運用改善）</a></li>
+                    <li><a href="other.html">参考制作</a></li>
                 </ul>
             </nav>
         </div>
@@ -44,7 +44,7 @@
                     そこで、HTMLの直接編集による誤消去等のリスクを排除し、専門知識の有無に関わらず、誰もが正確かつ迅速に更新できる運用フローを設計しました。<br><br>
                     JavaScriptで各設定値を読み込み、ページ内の該当クラスへ一括反映させる仕組みを構築しました。<br>
                     <br>その結果、<strong>1回あたりの更新作業時間を約30分から5分へと大幅に短縮し、貼り替えミスなどのヒューマンエラーを物理的に排除する運用フローを実現</strong>しました。<br>
-                    <span class="demo-notice">※割引率や価格など、半角数字での入力を徹底してもらえるようにマニュアルには記載しています。<br>※本デモは、仕組みを視覚化するために管理領域を入力フォーム形式にアレンジした簡易版です。</span>
+                    <span class="demo-notice">※割引率や価格など、半角数字での入力を徹底してもらえるようにマニュアルには記載しています。<br>※本デモは、仕組みを視覚化するためにアレンジした簡易版です。</span>
                 </p>
         </div>
             <div class="demo-tool-container">
@@ -81,7 +81,7 @@
                 <p class="description-text">
                     外部パートナーへの制作依頼において、上記JSの組み込みと合わせ、実装ルールの不徹底による表記揺れや、ソースコードの記述ミスを防止するためのマニュアルを作成しました。<br>
                     そのままコピペして使用できるモジュールと、実装意図を併記したドキュメントを整備。これにより、検品工数の削減と、開発スピードの向上を両立しました。<br>
-                    <span class="demo-notice">※本デモは、マニュアルの仕様を再現した簡易版です。実際のものとは異なります。</span>
+                    <span class="demo-notice">※機密保持のため、掲載内容は実際の案件に基づいた構成を再現した「デモ用サンプル」です。更新履歴や指示文などはすべて架空のものに差し替えています。</span>
                 </p>
             </div>
 
@@ -94,7 +94,12 @@
             </div>
 
             <div class="manual-history">
-                <p>最終更新日：2026/00/00　<span>XXXの記述ルールを変更しました</span></p>
+                <dl>
+                    <dt>2026/03/03</dt>
+                    <dd>【共通】ボタンコンポーネントの命名規則を更新</dd>
+                    <dt>2026/02/15</dt>
+                    <dd>サンプル3のJSにおいて、特定環境でのスクロール挙動を修正</dd>
+                </dl>
             </div>
 
             <div class="code-samples">
@@ -107,8 +112,8 @@
 <div id="js-floating-banner" class="floating-banner is-hidden">
     <a href="#contact" class="floating-banner__link">
         <div class="floating-banner__inner">
-            <span class="floating-banner__text">期間限定！最大<span class="p-discount">50</span>%OFF</span>
-            <span class="floating-banner__sub">詳細はこちら ＞</span>
+            <span class="floating-banner__text">期間限定！最大<span class="p-discount"></span>%OFF</span>
+            <span class="floating-banner__sub">詳細は<a href="item.html">こちら ＞</a></span>
         </div>
     </a>
 </div>
@@ -117,7 +122,7 @@
 
                 <div id="sample-02" class="code-item">
                     <div class="code-header">
-                        <span>サンプル2：基本スタイル（CSS）<br>スタイルのXXXは、YYYと連動しているので、変更しないでください。</span>
+                        <span>サンプル2：基本スタイル（CSS）<br>スタイルのfloating-bannerは、sample.jsと連動しているので、変更しないでください。</span>
                         <button class="copy-btn" data-copy-target="code-css">コピーする</button>
                     </div>
                     <textarea id="code-css" readonly class="code-box">
@@ -175,12 +180,18 @@ window.addEventListener('scroll', () => {
                     セットごとの情報を整理し、ページの見通しと比較のしやすさを改善した。<br>
                     既存LPの構成に合わせて実装し、訴求情報を過不足なく見せられるよう調整した。<br>
                 </p>
+                <h3 class="sub-title">担当領域・実装のポイント</h3>
+                <ul class="art-spec" style="margin-top: 15px; padding: 15px; background: #fdfdfd; border: 1px solid #eee; border-radius: 8px;">
+                    <li><span>担当箇所：</span>HTML / CSS / JavaScript / 画像の命名規則</li>
+                    <li><span>工夫した点：</span>タブをタップ（クリック）で切り替わることがわかりやすく。</li>
+                    <li><span>その他：</span>見ている商品の購入ボタンを押すと、その商品を選択した状態で立ち上がるチャットbotの改造は外部依頼。</li>
+                </ul>
             </div>
         </section>
 
         <section class="container" id="movie-gallery-section">
             <div class="work-description">
-                <h2 class="work-title">HowTo動画ギャラリーページの実装<br><span>（UI/UX設計・シームレスな視聴体験）</span></h2>
+                <h2 class="work-title">動画ギャラリーページの実装<br><span>（UI/UX設計・シームレスな視聴体験）</span></h2>
                 <p class="description-text">使い方動画ページ</p>
                <h3 class="sub-title">担当領域・実装のポイント</h3>
                 <ul class="art-spec" style="margin-top: 15px; padding: 15px; background: #fdfdfd; border: 1px solid #eee; border-radius: 8px;">
@@ -210,27 +221,12 @@ window.addEventListener('scroll', () => {
         </section>
     </main>
 
-    <div class="video-modal" id="js-global-video-modal">
-        <div class="video-modal-overlay" id="js-global-video-overlay"></div>
-        <div class="video-modal-content">
-            <button class="video-modal-close" id="js-global-video-close">&times;</button>
-            <video id="js-global-video-player" loop muted playsinline controls>
-                <p>動画を再生できる環境ではありません。</p>
-            </video>
-        </div>
-    </div>
-
-    <div class="art-viewer-overlay" id="js-art-viewer-overlay">
-        <span class="art-viewer-close" id="js-art-viewer-close">&times;</span>
-        <img id="art-viewer-img" src="" alt="拡大画像">
-    </div>
-
     <button id="js-page-top" class="page-top-btn" aria-label="ページトップへ戻る">
         <span class="arrow-up"></span>
     </button>
 
     <footer>
-        <p>&copy; 2026 Portfolio Site</p>
+        <p>&copy; 2026 Portfolio </p>
     </footer>
 
 <script src="js/main.js"></script>

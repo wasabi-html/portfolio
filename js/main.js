@@ -1,0 +1,191 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const applyBtn = document.getElementById('apply-btn');
+  const toast = document.getElementById('copy-toast');
+
+  // ------------------------
+  // 反映機能
+  // ------------------------
+  if (applyBtn) {
+    applyBtn.addEventListener('click', () => {
+      const inputs = document.querySelectorAll('.input-group input');
+
+      inputs.forEach(input => {
+        const targetClass = input.dataset.target;
+        let value = input.value.trim();
+        const targets = document.querySelectorAll('.' + targetClass);
+
+        if (!targets.length) return;
+
+        if (value === '') {
+          targets.forEach(target => {
+            target.innerHTML = '';
+          });
+          return;
+        }
+
+        if (targetClass === 'p-discount') {
+          value = value.replace(/[^0-9]/g, '');
+          targets.forEach(target => {
+            target.textContent = value;
+          });
+        } else if (targetClass === 'p-price') {
+          const num = value.replace(/,/g, '');
+
+          if (!isNaN(num) && num !== '') {
+            const formatted = Number(num).toLocaleString();
+            const htmlValue = formatted.replace(/,/g, '<span>,</span>');
+
+            targets.forEach(target => {
+              target.innerHTML = htmlValue;
+            });
+          } else {
+            targets.forEach(target => {
+              target.innerHTML = '';
+            });
+          }
+        } else {
+          targets.forEach(target => {
+            target.textContent = value;
+          });
+        }
+      });
+    });
+  }
+
+  // ------------------------
+  // コピー機能
+  // ------------------------
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      const currentBtn = e.currentTarget;
+      const targetId = currentBtn.dataset.copyTarget;
+      const textarea = document.getElementById(targetId);
+
+      if (!textarea) return;
+
+      const codeText = textarea.value.trim();
+      if (!codeText) return;
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(codeText);
+        } else {
+          textarea.select();
+          textarea.setSelectionRange(0, 99999);
+          document.execCommand('copy');
+        }
+
+        const originalText = currentBtn.textContent;
+        currentBtn.textContent = 'コピーしました！';
+        currentBtn.classList.add('active');
+
+        if (toast) {
+          toast.classList.add('show');
+        }
+
+        setTimeout(() => {
+          currentBtn.textContent = originalText;
+          currentBtn.classList.remove('active');
+
+          if (toast) {
+            toast.classList.remove('show');
+          }
+        }, 2000);
+      } catch (error) {
+        alert('コピーに失敗しました');
+        console.error(error);
+      }
+    });
+  });
+
+  // ------------------------
+  // 共通動画モーダルの制御（スマート版）
+  // ------------------------
+  const videoOpenBtns = document.querySelectorAll('.js-video-open');
+  const globalVideoModal = document.getElementById('js-global-video-modal');
+  const globalVideoOverlay = document.getElementById('js-global-video-overlay');
+  const globalVideoClose = document.getElementById('js-global-video-close');
+  const globalVideoPlayer = document.getElementById('js-global-video-player');
+
+  if (globalVideoModal && globalVideoPlayer) {
+      videoOpenBtns.forEach(btn => {
+          btn.addEventListener('click', function() {
+              // クリックされたサムネイルから、動画のパス（data-video-src）を取得
+              const videoSrc = this.getAttribute('data-video-src');
+              if (!videoSrc) return;
+
+              // 動画プレーヤーにパスをセットして、モーダルを開いて再生
+              globalVideoPlayer.src = videoSrc;
+              globalVideoModal.classList.add('is-active');
+              globalVideoPlayer.play();
+          });
+      });
+
+      // 閉じる処理
+      const closeVideoModal = () => {
+          globalVideoModal.classList.remove('is-active');
+          globalVideoPlayer.pause();
+          globalVideoPlayer.src = ""; // 次のために動画ソースを空にしてリセット
+      };
+
+      if(globalVideoClose) globalVideoClose.addEventListener('click', closeVideoModal);
+      if(globalVideoOverlay) globalVideoOverlay.addEventListener('click', closeVideoModal);
+  }
+
+  // ------------------------
+  // 画像モーダルの制御
+  // ------------------------
+  const artZoomLinks = document.querySelectorAll('.art-zoom-link');
+  const artViewerOverlay = document.getElementById('js-art-viewer-overlay');
+  const artViewerImg = document.getElementById('art-viewer-img');
+  const artViewerClose = document.getElementById('js-art-viewer-close');
+
+  if (artViewerOverlay && artViewerImg) {
+      artZoomLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+              e.preventDefault(); // 
+              const imageSrc = this.getAttribute('href'); 
+              artViewerImg.setAttribute('src', imageSrc); 
+              artViewerOverlay.style.display = 'flex';
+          });
+      });
+
+      // 閉じる処理
+      const closeArtModal = () => {
+          artViewerOverlay.style.display = 'none';
+          artViewerImg.setAttribute('src', ''); // 画像をリセット
+      };
+
+      if(artViewerClose) artViewerClose.addEventListener('click', closeArtModal);
+      
+      // 黒い背景部分をクリックした時も閉じる
+      artViewerOverlay.addEventListener('click', function(e) {
+          if (e.target === this) { 
+              closeArtModal();
+          }
+      });
+  }
+// ------------------------
+  // TOPへ戻るボタンの制御
+  // ------------------------
+  const pageTopBtn = document.getElementById('js-page-top');
+
+  if (pageTopBtn) {
+      // スクロール時にボタンの表示/非表示をフワッと切り替え
+      window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) { // 300px下にスクロールしたら表示
+              pageTopBtn.classList.add('is-show');
+          } else {
+              pageTopBtn.classList.remove('is-show');
+          }
+      });
+
+      // クリックで一番上へスムーススクロール
+      pageTopBtn.addEventListener('click', () => {
+          window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+          });
+      });
+  }
+});

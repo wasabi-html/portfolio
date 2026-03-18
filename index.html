@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Portfolio | JS・コーディングをはじめ、ロゴデザイン、Vtuber素材などの作品を掲載しています。</title>
+    <meta name="description" content="ポートフォリオサイトです。JavaScriptを用いたWeb制作、コーディング実績、ロゴデザイン、Vtuber素材などの作品を掲載しています。">
+    <link rel="canonical" href="https://your-domain.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:title" content="Portfolio">
+    <meta property="og:description" content="JavaScriptを用いたWeb制作の実績をまとめたポートフォリオサイトです。">
+    <meta property="og:image" content="https://your-domain.com/img/ogp.jpg">
+    <meta property="og:site_name" content="ポートフォリオ">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1><a href="index.html">Portfolio</a></h1>
+            
+            <input type="checkbox" id="menu-btn-check">
+            <label for="menu-btn-check" class="menu-btn"><span></span></label>
+            
+            <nav class="menu-content">
+                <ul>
+                    <li><a href="index.html">TOP</a></li>
+                    <li><a href="demo.html">実績（JS・コーディング）</a></li>
+                    <li><a href="other.html">Other Works (Graphic & Assets)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="top" class="hero">
+            <div class="profile-area">
+                <h2 class="profile-title">Profile / Skill Set</h2>
+                    
+                    <div class="profile-box">
+                        <h3 class="profile-sub-title">About Me</h3>
+                        <p class="profile-text">
+                            Web制作（フロントエンド実装）を中心に、UI/UXの改善やバナー・ロゴ制作など幅広い業務に携わってきました。<br>
+                            課題を「どのようにUIや仕組みで解決するか」を意識し、社内の業務効率化（JavaScriptによるツール作成）や、LPの改善業務に取り組んできました。<br>
+                            デザインとコーディングの両面から、運用しやすく実用的なサイト制作を行うことを強みとしています。
+                        </p>
+                    </div>
+
+                    <div class="profile-box">
+                        <h3 class="profile-sub-title">Skills</h3>
+                        <ul class="profile-list">
+                            <li><strong>💻 フロントエンド:</strong> HTML5 / CSS3 / JavaScript</li>
+                            <li><strong>🎨 グラフィック:</strong> Photoshop / Illustrator / After Effects</li>
+                            <li><strong>⚙️ 業務改善・その他:</strong> JavaScriptによる業務効率化 / UI改善・画面設計</li>
+                        </ul>
+                    </div>
+
+            </div>
+        </section>
+
+        <section id="works-coding" class="container">
+            <h2>実績（JS・コーディング）</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-content">
+                    <h3>LP運用フローのシステム化</h3>
+                    <p>30分→5分に短縮したシステムのデモ版です。</p>
+                    <a href="demo.html" class="btn-detail">詳しく見る</a>
+                    </div>
+                </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>htmlでのマニュアルサンプル</h3>
+                    <p>外注用マニュアルをhtmlで作成したデモ版です。</p>
+                    <a href="demo.html#manual-section" class="btn-detail">詳しく見る</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-content">
+                    <h3>タブ切り替え実装</h3>
+                    <p>タブで切り替えで表示できるようJSとCSSを組み込みました。</p>
+                    <a href="demo.html#tab-section" class="btn-detail">詳しく見る</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>一枚ページの実装</h3>
+                    <p>Howto動画のページや、LPページの実装対応しました。</p>
+                    <a href="demo.html#movie-gallery-section" class="btn-detail">詳しく見る</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>バナーサンプル</h3>
+                    <p>実際に制作したバナーなど</p>
+                    <a href="demo.html#bnr-section" class="btn-detail">詳しく見る</a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="section-footer">
+            <a href="demo.html" class="btn-more">一覧ページへ</a>
+        </div>
+    </section>
+
+        <section id="works-other" class="container">
+            <h2>Other Works (Graphic & Assets)</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-content">
+                    <h3>趣味で作成したロゴ、Vtuber用素材、イラストなど</h3>
+                    <p>参考用として（※イラストには二次創作を含みます）</p>
+                    </div>
+                </div>
+        </div>
+
+        <div class="section-footer">
+            <a href="other.html" class="btn-more">一覧ページへ</a>
+        </div>
+        </section>
+    </main>
+
+    <button id="js-page-top" class="page-top-btn" aria-label="ページトップへ戻る">
+        <span class="arrow-up"></span>
+    </button>
+
+    <footer>
+        <p>&copy; 2026 Portfolio Site</p>
+    </footer>
+</body>
+</html>

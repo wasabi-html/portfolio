@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------
-  // 共通動画モーダルの制御（スマート版）
+  // 共通動画モーダルの制御
   // ------------------------
   const videoOpenBtns = document.querySelectorAll('.js-video-open');
   const globalVideoModal = document.getElementById('js-global-video-modal');
@@ -164,6 +164,37 @@ document.addEventListener('DOMContentLoaded', () => {
               closeArtModal();
           }
       });
+  }
+  // ------------------------
+  // YouTube動画モーダルの制御
+  // ------------------------
+  const ytOpenBtns = document.querySelectorAll('.js-youtube-open');
+  const ytModal = document.getElementById('js-youtube-modal');
+  const ytOverlay = document.getElementById('js-youtube-overlay');
+  const ytClose = document.getElementById('js-youtube-close');
+  const ytPlayer = document.getElementById('js-youtube-player');
+
+  if (ytModal && ytPlayer) {
+      ytOpenBtns.forEach(btn => {
+          btn.addEventListener('click', function() {
+              const ytId = this.getAttribute('data-youtube-id');
+              if (!ytId) return;
+
+              // YouTubeのURLをセット（autoplay=1 を付けて自動再生させる）
+              ytPlayer.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`;
+              ytModal.classList.add('is-active');
+          });
+      });
+
+      // 閉じる処理
+      const closeYtModal = () => {
+          ytModal.classList.remove('is-active');
+          // srcを空にして動画の再生（音声）を完全に止める
+          ytPlayer.src = ""; 
+      };
+
+      if(ytClose) ytClose.addEventListener('click', closeYtModal);
+      if(ytOverlay) ytOverlay.addEventListener('click', closeYtModal);
   }
 // ------------------------
   // TOPへ戻るボタンの制御

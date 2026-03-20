@@ -112,31 +112,29 @@
                 </dl>
             </div>
 
-            <div class="code-samples">
-                <div id="sample-01" class="code-item">
-                    <div class="code-header">
-                        <span>サンプル1：HTML構造<br>割引率のところにはclass="p-discount"を入れてください。</span>                
-                        <button class="copy-btn" data-copy-target="code-html">コピーする</button>
-                    </div>
-<textarea id="code-html" readonly class="code-box">
-<div id="js-floating-banner" class="floating-banner is-hidden">
-    <a href="#contact" class="floating-banner__link">
-        <div class="floating-banner__inner">
-            <span class="floating-banner__text">期間限定！最大<span class="p-discount"></span>%OFF</span>
-            <span class="floating-banner__sub">詳細は<a href="item.html">こちら ＞</a></span>
-        </div>
-    </a>
+<div class="code-samples">
+<div id="sample-01" class="code-item">
+<div class="code-header">
+    <span>サンプル1：HTML構造<br>割引率のところにはclass="p-discount"を入れてください。</span>                
+    <button class="copy-btn" data-copy-target="code-html">コピーする</button>
 </div>
-</textarea>
-                </div>
 
-                <div id="sample-02" class="code-item">
-                    <div class="code-header">
-                        <span>サンプル2：基本スタイル（CSS）<br>スタイルのxxxは、yyy.jsと連動しているので、変更しないでください。</span>
-                        <button class="copy-btn" data-copy-target="code-css">コピーする</button>
-                    </div>
-<textarea id="code-css" readonly class="code-box">
-.floating-banner {
+<pre id="code-html" class="code-box"><code>&lt;div id="js-floating-banner" class="floating-banner is-hidden"&gt;
+&lt;a href="#contact" class="floating-banner__link"&gt;
+    &lt;div class="floating-banner__inner"&gt;
+        &lt;span class="floating-banner__text"&gt;期間限定！最大&lt;span class="p-discount"&gt;&lt;/span&gt;%OFF&lt;/span&gt;
+        &lt;span class="floating-banner__sub"&gt;詳細は&lt;a href="item.html"&gt;こちら ＞&lt;/a&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<div id="sample-02" class="code-item">
+<div class="code-header">
+    <span>サンプル2：基本スタイル（CSS）<br>スタイルのxxxは、yyy.jsと連動しているので、変更しないでください。</span>
+    <button class="copy-btn" data-copy-target="code-css">コピーする</button>
+</div>
+<pre id="code-css" class="code-box"><code>.floating-banner {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -156,31 +154,28 @@
     border-radius: 50px;
     text-decoration: none;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-</textarea>
-                </div>
+}</code></pre>
+</div>
 
-                <div id="sample-03" class="code-item">
-                    <div class="code-header">
-                        <span>サンプル3：スクリプト（JS）<br>以下のJSをbodyの閉じタグの直前に入れてください。</span>
-                        <button class="copy-btn" data-copy-target="code-js">コピーする</button>
-                    </div>
-<textarea id="code-js" readonly class="code-box">
-window.addEventListener('scroll', () => {
-    const banner = document.getElementById('js-floating-banner');
-    const scrollValue = window.pageYOffset;
-    const triggerPoint = 500; // 500pxスクロールしたら表示
+<div id="sample-03" class="code-item">
+  <div class="code-header">
+    <span>サンプル3：スクリプト（JS）<br>以下のJSをbodyの閉じタグの直前に入れてください。</span>
+    <button class="copy-btn" data-copy-target="code-js">コピーする</button>
+  </div>
+  <pre id="code-js" class="code-box"><code>window.addEventListener('scroll', () => {
+  const banner = document.getElementById('js-floating-banner');
+  const scrollValue = window.pageYOffset;
+  const triggerPoint = 500; // 500pxスクロールしたら表示
 
-    if (scrollValue > triggerPoint) {
-        banner.classList.remove('is-hidden');
-    } else {
-        banner.classList.add('is-hidden');
-    }
-});
-</textarea>
-                </div>
-            </div>
-        </section>
+  if (scrollValue > triggerPoint) {
+    banner.classList.remove('is-hidden');
+  } else {
+    banner.classList.add('is-hidden');
+  }
+});</code></pre>
+</div>
+</div>
+</section>
 
         <section class="container" id="tab-section">
             <div class="work-description">

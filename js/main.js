@@ -55,49 +55,55 @@ document.addEventListener('DOMContentLoaded', () => {
   // ------------------------
   // コピー機能
   // ------------------------
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', async (e) => {
-      const currentBtn = e.currentTarget;
-      const targetId = currentBtn.dataset.copyTarget;
-      const textarea = document.getElementById(targetId);
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', async (e) => {
+    const currentBtn = e.currentTarget;
+    const targetId = currentBtn.dataset.copyTarget;
+    const codeElement = document.getElementById(targetId);
 
-      if (!textarea) return;
+    if (!codeElement) return;
 
-      const codeText = textarea.value.trim();
-      if (!codeText) return;
+    const codeText = codeElement.textContent.trim();
+    if (!codeText) return;
 
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(codeText);
-        } else {
-          textarea.select();
-          textarea.setSelectionRange(0, 99999);
-          document.execCommand('copy');
-        }
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(codeText);
+      } else {
+        const tempTextArea = document.createElement('textarea');
+        tempTextArea.value = codeText;
+        tempTextArea.style.position = 'fixed';
+        tempTextArea.style.opacity = '0';
+        document.body.appendChild(tempTextArea);
+        tempTextArea.focus();
+        tempTextArea.select();
+        tempTextArea.setSelectionRange(0, tempTextArea.value.length);
+        document.execCommand('copy');
+        document.body.removeChild(tempTextArea);
+      }
 
-        const originalText = currentBtn.textContent;
-        currentBtn.textContent = 'コピーしました！';
-        currentBtn.classList.add('active');
+      const originalText = currentBtn.textContent;
+      currentBtn.textContent = 'コピーしました！';
+      currentBtn.classList.add('active');
+
+      if (toast) {
+        toast.classList.add('show');
+      }
+
+      setTimeout(() => {
+        currentBtn.textContent = originalText;
+        currentBtn.classList.remove('active');
 
         if (toast) {
-          toast.classList.add('show');
+          toast.classList.remove('show');
         }
-
-        setTimeout(() => {
-          currentBtn.textContent = originalText;
-          currentBtn.classList.remove('active');
-
-          if (toast) {
-            toast.classList.remove('show');
-          }
-        }, 2000);
-      } catch (error) {
-        alert('コピーに失敗しました');
-        console.error(error);
-      }
-    });
+      }, 2000);
+    } catch (error) {
+      alert('コピーに失敗しました');
+      console.error(error);
+    }
   });
-
+});
   // ------------------------
   // タブ切り替えサンプル
   // ------------------------

@@ -14,6 +14,7 @@ body {
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 /* アニメーション・動画のチラつき（フリッカー）防止 */
@@ -48,11 +49,13 @@ h1 a:hover {
 }
 
 .header-container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding-right: 56px;
 }
 
 /* ハンバーガーボタンのデザイン */
@@ -65,7 +68,7 @@ h1 a:hover {
     width: 40px;
     justify-content: center;
     align-items: center;
-    z-index: 110;
+    z-index: 120;
     background-color: #333;
     cursor: pointer;
 }
@@ -101,7 +104,7 @@ h1 a:hover {
     position: fixed;
     top: 0;
     left: 100%; /* 初期状態は右側に隠す */
-    z-index: 105;
+    z-index: 115;
     background-color: rgba(51, 51, 51, 0.95);
     transition: all 0.5s;
 }
@@ -270,6 +273,36 @@ footer {
 }
 
 /*jsデモページ*/
+.demo-toc {
+    position: relative;
+    z-index: 1;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin: 32px auto 40px;
+}
+.toc-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+.toc-list li a {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.toc-list li a:hover {
+    background: #e63946;
+    color: #fff;
+}
+
 .work-link-area {
     margin: 1.5rem auto;
     padding: 15px;
@@ -304,6 +337,7 @@ footer {
     background: linear-gradient(transparent 70%, #a8d8c6 70%); 
     font-weight: bold;
 }
+
 
 /* デモツールのスタイル */
 .demo-tool-container {
@@ -366,6 +400,7 @@ footer {
     font-weight: normal;
     margin: 0 1px;
 }
+
 
 /* マニュアル用ナビゲーション */
 .manual-nav {
@@ -505,6 +540,10 @@ footer {
   margin-bottom: 24px;
 }
 
+.product-header img{
+    width:100%;
+}
+
 .brand-name {
   color: #8b4513;
   font-size: 0.9em;
@@ -562,6 +601,10 @@ footer {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+}
+.badge.normal{
+    background-color: #f1d39a;
+    color: #5c3a21;
 }
 
 .badge.alert {
@@ -710,7 +753,7 @@ footer {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  z-index: 9999;
+  z-index: 90;
   font-family: sans-serif;
   overflow: hidden;
   /* 初期状態は画面外（下）に隠す */
@@ -856,7 +899,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 9999;
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -882,7 +925,7 @@ footer {
 
 .video-modal-content {
     position: relative;
-    z-index: 10000;
+    z-index: 1001;
     width: 90%; 
 }
 
@@ -930,12 +973,6 @@ footer {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-@media (max-width: 767px) {
-    .thumb-row img {
-        max-width: 100%;
-    }
 }
 
 .video-row {
@@ -1012,7 +1049,7 @@ footer {
     top: 0; left: 0;
     width: 100%; height: 100%;
     background: rgba(0,0,0,0.9);
-    z-index: 2000;
+    z-index: 1000;
     justify-content: center;
     align-items: center;
 }
@@ -1066,7 +1103,7 @@ footer {
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 9000; 
+    z-index: 80; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1112,9 +1149,15 @@ footer {
         flex: 1; 
     }
 }
+/* スマホ用 */
+@media (max-width: 767px) {
+    .video-row .demo-video-thumbnail {
+        max-width: 100%; 
+        flex: 1 1 100%;  
+        margin-bottom: 20px; 
+    }
 
-@media screen and (max-width: 768px) {
-  .thumb-row img {
-    width: 100%;
-  }
+    .video-modal-content {
+        width: 95%; 
+    }
 }

@@ -20,11 +20,9 @@
 <body>
     <header>
         <div class="header-container">
-            <h1><a href="index.html">Portfolio</a></h1>
-            
+            <h1><a href="index.html">Portfolio</a></h1>            
             <input type="checkbox" id="menu-btn-check">
             <label for="menu-btn-check" class="menu-btn"><span></span></label>
-            
             <nav class="menu-content">
                 <ul>
                     <li><a href="index.html">TOP</a></li>
@@ -36,7 +34,19 @@
     </header>
 
     <main>
-        <section class="container">
+    <nav class="demo-toc">
+            <details>
+            <summary class="toc-title">INDEX（クリックで開く）</summary>
+            <ul class="toc-list">
+                <li><a href="#system-section">LP運用システム化</a></li>
+                <li><a href="#manual-section">外注用マニュアル</a></li>
+                <li><a href="#tab-section">タブ切り替え実装</a></li>
+                <li><a href="#movie-gallery-section">動画ギャラリー</a></li>
+                <li><a href="#column-lp-section">記事型LP実装</a></li>
+            </ul>
+            </details>  
+        </nav>
+        <section class="container" id="system-section">
             <div class="work-description">
                 <h2 class="work-title">LP運用フローのシステム化<br><span>（更新工数削減・ヒューマンエラー防止）</span></h2>
                 <p class="description-text">
@@ -122,7 +132,7 @@
 
                 <div id="sample-02" class="code-item">
                     <div class="code-header">
-                        <span>サンプル2：基本スタイル（CSS）<br>スタイルのfloating-bannerは、sample.jsと連動しているので、変更しないでください。</span>
+                        <span>サンプル2：基本スタイル（CSS）<br>スタイルのxxxは、yyy.jsと連動しているので、変更しないでください。</span>
                         <button class="copy-btn" data-copy-target="code-css">コピーする</button>
                     </div>
                     <textarea id="code-css" readonly class="code-box">
@@ -202,7 +212,7 @@
               
                 <ul class="tab-buttons">
                   <li class="tab-btn active" data-target="tab-single">
-                    単品
+                    単品<span class="badge normal">まずはお試し</span>
                   </li>
                   <li class="tab-btn" data-target="tab-pair">
                     2人前セット<span class="badge">おすすめ</span>

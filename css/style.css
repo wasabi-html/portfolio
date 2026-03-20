@@ -290,6 +290,10 @@ footer {
 
 .demo-toc summary::-webkit-details-marker {
     display: none;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin: 32px auto 40px;
 }
 .toc-list {
     display: flex;
@@ -363,7 +367,6 @@ footer {
         flex-direction: column;
     }
 }
-
 
 /* デモツールのスタイル */
 .demo-tool-container {
@@ -735,7 +738,7 @@ footer {
 }
 
 .contents-box ul {
-  padding-left: 20px;
+  padding: 20px 0 0 20px;
   margin-bottom: 0;
 }
 
@@ -1177,6 +1180,7 @@ footer {
 }
 /* スマホ用 */
 @media (max-width: 768px) {
+
     .video-row .demo-video-thumbnail {
         max-width: 100%; 
         flex: 1 1 100%;  

@@ -99,6 +99,68 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------
+  // タブ切り替えサンプル
+  // ------------------------
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  if (tabButtons.length > 0) {
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanels.forEach(panel => panel.classList.remove('active'));
+
+        button.classList.add('active');
+
+        const targetId = button.getAttribute('data-target');
+        const targetPanel = document.getElementById(targetId);
+        if (targetPanel) {
+          targetPanel.classList.add('active');
+        }
+      });
+    });
+  }
+
+  // ------------------------
+  // ダミーチャットbot 連動処理
+  // ------------------------
+  const cartButtons = document.querySelectorAll('.js-open-chat');
+  const chatWindow = document.getElementById('dummy-chatbot');
+  const chatCloseBtn = document.getElementById('close-chat');
+  const chatSelectedItem = document.getElementById('chat-selected-item');
+  const chatItemSelect = document.getElementById('chat-item-select');
+
+  // カートボタンがクリックされた時の処理
+  if (cartButtons.length > 0 && chatWindow) {
+    cartButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        // ボタンに設定した商品名(data-product)を取得
+        const productName = e.target.getAttribute('data-product');
+        
+        // チャット内のテキストを更新
+        if (chatSelectedItem) {
+          chatSelectedItem.textContent = productName;
+        }
+        
+        // チャット内のセレクトボックスを連動させる
+        if (chatItemSelect) {
+          chatItemSelect.value = productName;
+        }
+
+        // チャットUIを下からスライドイン
+        chatWindow.classList.add('is-active');
+      });
+    });
+  }
+
+  // ×ボタンでチャットを閉じる処理
+  if (chatCloseBtn && chatWindow) {
+    chatCloseBtn.addEventListener('click', () => {
+      chatWindow.classList.remove('is-active');
+    });
+  }
+
+  // ------------------------
   // 共通動画モーダルの制御
   // ------------------------
   const videoOpenBtns = document.querySelectorAll('.js-video-open');
@@ -143,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (artViewerOverlay && artViewerImg) {
       artZoomLinks.forEach(link => {
           link.addEventListener('click', function(e) {
-              e.preventDefault(); // 
+              e.preventDefault(); 
               const imageSrc = this.getAttribute('href'); 
               artViewerImg.setAttribute('src', imageSrc); 
               artViewerOverlay.style.display = 'flex';
@@ -165,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       });
   }
+
   // ------------------------
   // YouTube動画モーダルの制御
   // ------------------------
@@ -196,7 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if(ytClose) ytClose.addEventListener('click', closeYtModal);
       if(ytOverlay) ytOverlay.addEventListener('click', closeYtModal);
   }
-// ------------------------
+
+  // ------------------------
   // TOPへ戻るボタンの制御
   // ------------------------
   const pageTopBtn = document.getElementById('js-page-top');

@@ -118,16 +118,16 @@
                         <span>サンプル1：HTML構造<br>割引率のところにはclass="p-discount"を入れてください。</span>                
                         <button class="copy-btn" data-copy-target="code-html">コピーする</button>
                     </div>
-                    <textarea id="code-html" readonly class="code-box">
-                        <div id="js-floating-banner" class="floating-banner is-hidden">
-                            <a href="#contact" class="floating-banner__link">
-                                <div class="floating-banner__inner">
-                                    <span class="floating-banner__text">期間限定！最大<span class="p-discount"></span>%OFF</span>
-                                    <span class="floating-banner__sub">詳細は<a href="item.html">こちら ＞</a></span>
-                                </div>
-                            </a>
-                        </div>
-                    </textarea>
+<textarea id="code-html" readonly class="code-box">
+<div id="js-floating-banner" class="floating-banner is-hidden">
+    <a href="#contact" class="floating-banner__link">
+        <div class="floating-banner__inner">
+            <span class="floating-banner__text">期間限定！最大<span class="p-discount"></span>%OFF</span>
+            <span class="floating-banner__sub">詳細は<a href="item.html">こちら ＞</a></span>
+        </div>
+    </a>
+</div>
+</textarea>
                 </div>
 
                 <div id="sample-02" class="code-item">
@@ -135,29 +135,29 @@
                         <span>サンプル2：基本スタイル（CSS）<br>スタイルのxxxは、yyy.jsと連動しているので、変更しないでください。</span>
                         <button class="copy-btn" data-copy-target="code-css">コピーする</button>
                     </div>
-                    <textarea id="code-css" readonly class="code-box">
-                        .floating-banner {
-                            position: fixed;
-                            bottom: 20px;
-                            right: 20px;
-                            z-index: 1000;
-                            transition: transform 0.4s ease, opacity 0.4s ease;
-                        }
-                        .floating-banner.is-hidden {
-                            transform: translateY(100px);
-                            opacity: 0;
-                            pointer-events: none;
-                        }
-                        .floating-banner__link {
-                            display: block;
-                            background: linear-gradient(135deg, #e63946 0%, #d62828 100%);
-                            color: #fff;
-                            padding: 15px 25px;
-                            border-radius: 50px;
-                            text-decoration: none;
-                            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                        }
-                    </textarea>
+<textarea id="code-css" readonly class="code-box">
+.floating-banner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.floating-banner.is-hidden {
+    transform: translateY(100px);
+    opacity: 0;
+    pointer-events: none;
+}
+.floating-banner__link {
+    display: block;
+    background: linear-gradient(135deg, #e63946 0%, #d62828 100%);
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+</textarea>
                 </div>
 
                 <div id="sample-03" class="code-item">
@@ -165,19 +165,19 @@
                         <span>サンプル3：スクリプト（JS）<br>以下のJSをbodyの閉じタグの直前に入れてください。</span>
                         <button class="copy-btn" data-copy-target="code-js">コピーする</button>
                     </div>
-                    <textarea id="code-js" readonly class="code-box">
-                        window.addEventListener('scroll', () => {
-                            const banner = document.getElementById('js-floating-banner');
-                            const scrollValue = window.pageYOffset;
-                            const triggerPoint = 500; // 500pxスクロールしたら表示
+<textarea id="code-js" readonly class="code-box">
+window.addEventListener('scroll', () => {
+    const banner = document.getElementById('js-floating-banner');
+    const scrollValue = window.pageYOffset;
+    const triggerPoint = 500; // 500pxスクロールしたら表示
 
-                            if (scrollValue > triggerPoint) {
-                                banner.classList.remove('is-hidden');
-                            } else {
-                                banner.classList.add('is-hidden');
-                            }
-                        });
-                    </textarea>
+    if (scrollValue > triggerPoint) {
+        banner.classList.remove('is-hidden');
+    } else {
+        banner.classList.add('is-hidden');
+    }
+});
+</textarea>
                 </div>
             </div>
         </section>

@@ -266,6 +266,36 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
       if(ytOverlay) ytOverlay.addEventListener('click', closeYtModal);
   }
 
+
+  // ------------------------
+  // demo.html の section.container 単位でスクロール表示
+  // ------------------------
+  const sectionRevealTargets = document.querySelectorAll('.section-reveal');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (sectionRevealTargets.length > 0) {
+    if (prefersReducedMotion) {
+      sectionRevealTargets.forEach(target => target.classList.add('is-visible'));
+    } else {
+      const sectionRevealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      }, {
+        threshold: 0.16,
+        rootMargin: '0px 0px -10% 0px'
+      });
+
+      sectionRevealTargets.forEach(target => {
+        sectionRevealObserver.observe(target);
+      });
+    }
+  }
+
   // ------------------------
   // TOPへ戻るボタンの制御
   // ------------------------

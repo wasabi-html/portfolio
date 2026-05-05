@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KBSTRWP4');</script>
+    <!-- End Google Tag Manager -->   
+    <title>Portfolio | EC運用・LP改善・フロント実装の実績</title>
+    <meta name="description" content="ECサイト運用に関わるLP改善、フロント実装、業務効率化、UI改善の実績をまとめたポートフォリオです。">
+    <link rel="canonical" href="https://wasabi-html.github.io/portfolio/demo.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wasabi-html.github.io/portfolio/demo.html">
+    <meta property="og:title" content="Portfolio">
+    <meta property="og:description" content="ECサイト運用に関わるLP改善、フロント実装、業務効率化、UI改善の実績をまとめたポートフォリオです。">
+    <meta property="og:image" content="https://wasabi-html.github.io/portfolio/img/ogp.png">
+    <meta property="og:site_name" content="ポートフォリオ">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBSTRWP4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <header>
+        <div class="header-container">
+            <h1><a href="index.html">Portfolio</a></h1>            
+            <input type="checkbox" id="menu-btn-check">
+            <label for="menu-btn-check" class="menu-btn"><span></span></label>
+            <nav class="menu-content">
+                <ul>
+                    <li><a href="index.html">TOP</a></li>
+                    <li><a href="demo.html">実績（EC制作・運用改善）</a></li>
+                    <li><a href="other.html">参考制作</a></li>
+                    <li><a href="ai-works.html">AI活用制作</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+    <nav class="demo-toc">
+            <details>
+            <summary class="toc-title">INDEX（クリックで開く）</summary>
+            <ul class="toc-list">
+                <li><a href="#system-section">LP運用フローのシステム化</a></li>
+                <li><a href="#manual-section">外注ミスを減らすHTML実装マニュアル</a></li>
+                <li><a href="#tab-section">縦長LPを整理する比較タブUI</a></li>
+                <li><a href="#movie-gallery-section">離脱を防ぐ動画ギャラリー導線設計</a></li>
+                <li><a href="#column-lp-section">記事型LP実装</a></li>
+            </ul>
+            </details>  
+        </nav>
+        <section class="container section-reveal reveal-left" id="system-section">
+            <div class="work-description">
+                <h2 class="work-title">LP運用フローのシステム化<br><span>（更新工数削減・ヒューマンエラー防止）</span></h2>
+                <p class="description-text">
+                    キャンペーンごとに発生する価格、クーポンコード、期限などの更新作業において、複数箇所の修正漏れや、HTMLタグの誤消去によるレイアウト崩れが課題でした。<br>
+                    そこで、HTMLの直接編集による誤消去等のリスクを排除し、専門知識の有無に関わらず、誰もが正確かつ迅速に更新できる運用フローを設計しました。<br><br>
+                    JavaScriptで各設定値を読み込み、ページ内の該当クラスへ一括反映させる仕組みを構築しました。<br>
+                    <br>その結果、<strong>1回あたりの更新作業時間を約30分から5分へと大幅に短縮し、貼り替えミスなどのヒューマンエラーを物理的に排除する運用フローを実現</strong>しました。<br>
+                    <span class="demo-notice">※割引率や価格など、半角数字での入力を徹底してもらえるようにマニュアルには記載しています。<br>※本デモは、仕組みを視覚化するためにアレンジした簡易版です。</span>
+                </p>
+        </div>
+            <div class="demo-tool-container">
+                <h3>プレビュー設定</h3>
+                <div class="input-group">
+                    <input type="text" id="input-name" data-target="p-name" placeholder="お名前">
+                    <input type="text" id="input-discount" data-target="p-discount" placeholder="値引き率（例：20）">
+                    <input type="text" id="input-price" data-target="p-price" placeholder="値引き後の価格">
+                    <input type="text" id="input-coupon" data-target="p-coupon" placeholder="クーポン番号">
+                    <input type="text" id="input-limit" data-target="p-limit" placeholder="期限（例：12月末まで）">
+                    <button id="apply-btn">反映ボタン</button>
+                </div>
+            </div>
+
+            <div class="demo-display">
+                <div class="preview-card">
+                    <p><span class="p-name">○○</span> 様専用キャンペーン</p>
+                    <p>特別優待：<span class="p-discount">0</span>% OFF</p>
+                    <p>お支払い金額：<span class="p-price">0</span> 円</p>
+                    <p>クーポンコード：<span class="p-coupon">----</span></p>
+                    <p>有効期限：<span class="p-limit">----</span></p>
+                </div>
+
+                <div class="preview-card secondary">
+                    <p><span class="p-name">○○</span> 様専用キャンペーン</p>
+                    <p>有効期限：<span class="p-limit">----</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section-reveal reveal-right" id="manual-section">
+            <div class="work-description">
+                <h2 class="work-title">外注ミスを減らすHTML実装マニュアル<br><span>（ドキュメント整備・制作品質の安定化）</span></h2>
+                <p class="description-text">
+                    外部パートナーへの制作依頼において、上記JSの組み込みと合わせ、実装ルールの不徹底による表記揺れや、ソースコードの記述ミスを防止するためのマニュアルを作成しました。<br>
+                    そのままコピペして使用できるモジュールと、実装意図を併記したドキュメントを整備。これにより、検品工数の削減と、開発スピードの向上を両立しました。<br>
+                    <span class="demo-notice">※機密保持のため、掲載内容は実際の案件に基づいた構成を再現した「デモ用サンプル」です。更新履歴や指示文などはすべて架空のものに差し替えています。</span>
+                </p>
+            </div>
+
+            <div class="manual-nav">
+                <ul>
+                    <li><a href="#sample-01">サンプル1：HTML</a></li>
+                    <li><a href="#sample-02">サンプル2：CSS</a></li>
+                    <li><a href="#sample-03">サンプル3：JS</a></li>
+                </ul>
+            </div>
+
+            <div class="manual-history">
+                <dl>
+                    <dt>2026/03/03</dt>
+                    <dd>【共通】ボタンコンポーネントの命名規則を更新</dd>
+                    <dt>2026/02/15</dt>
+                    <dd>サンプル3のJSにおいて、特定環境でのスクロール挙動を修正</dd>
+                </dl>
+            </div>
+
+<div class="code-samples">
+<div id="sample-01" class="code-item">
+<div class="code-header">
+    <span>サンプル1：HTML構造<br>割引率のところにはclass="p-discount"を入れてください。</span>                
+    <button class="copy-btn" data-copy-target="code-html">コピーする</button>
+</div>
+
+<pre id="code-html" class="code-box"><code>&lt;div id="js-floating-banner" class="floating-banner is-hidden"&gt;
+&lt;a href="#contact" class="floating-banner__link"&gt;
+    &lt;div class="floating-banner__inner"&gt;
+        &lt;span class="floating-banner__text"&gt;期間限定！最大&lt;span class="p-discount"&gt;&lt;/span&gt;%OFF&lt;/span&gt;
+        &lt;span class="floating-banner__sub"&gt;詳細は&lt;a href="item.html"&gt;こちら ＞&lt;/a&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<div id="sample-02" class="code-item">
+<div class="code-header">
+    <span>サンプル2：基本スタイル（CSS）<br>スタイルのxxxは、yyy.jsと連動しているので、変更しないでください。</span>
+    <button class="copy-btn" data-copy-target="code-css">コピーする</button>
+</div>
+<pre id="code-css" class="code-box"><code>.floating-banner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.floating-banner.is-hidden {
+    transform: translateY(100px);
+    opacity: 0;
+    pointer-events: none;
+}
+.floating-banner__link {
+    display: block;
+    background: linear-gradient(135deg, #e63946 0%, #d62828 100%);
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}</code></pre>
+</div>
+
+<div id="sample-03" class="code-item">
+  <div class="code-header">
+    <span>サンプル3：スクリプト（JS）<br>以下のJSをbodyの閉じタグの直前に入れてください。</span>
+    <button class="copy-btn" data-copy-target="code-js">コピーする</button>
+  </div>
+  <pre id="code-js" class="code-box"><code>window.addEventListener('scroll', () => {
+  const banner = document.getElementById('js-floating-banner');
+  const scrollValue = window.pageYOffset;
+  const triggerPoint = 500; // 500pxスクロールしたら表示
+
+  if (scrollValue > triggerPoint) {
+    banner.classList.remove('is-hidden');
+  } else {
+    banner.classList.add('is-hidden');
+  }
+});</code></pre>
+</div>
+</div>
+</section>
+
+        <section class="container section-reveal reveal-left" id="tab-section">
+            <div class="work-description">
+                <h2 class="work-title">縦長LPを整理する比較タブUI<br><span>（比較しやすさ・回遊性の改善）</span></h2>
+                <p class="description-text">
+                    複数のセット商品を訴求するLPにおいて、縦に長くなりがちだった構成を見直し、タブ切り替えUIを実装。<br>
+                    セットごとの情報を整理し、ページの見通しと比較のしやすさを改善した。<br>
+                    既存LPの構成に合わせて実装し、訴求情報を過不足なく見せられるよう調整した。<br>
+                    <br>
+                    Before: 縦長リストで情報が散漫になりがち → After: タブ切り替えでセット商品をコンパクトに整理し、比較しやすさと滞在時間を向上。
+                </p>
+                <p><span class="demo-notice">※掲載内容は実際の案件に基づいた構成を再現した「デモ用サンプル」です。購入などはできません。</span></p>
+                <p><span class="demo-notice">※掲載画像はすべて、生成AIを用いて作成した架空素材です。実在の商品・ブランドとは関係ありません。</span></p>
+                <h3 class="sub-title">担当領域・実装のポイント</h3>
+                <ul class="art-spec" style="margin-top: 15px; padding: 15px; background: #fdfdfd; border: 1px solid #eee; border-radius: 8px;">
+                    <li><span>担当箇所：</span>HTML / CSS / JavaScript / 画像の命名規則</li>
+                    <li><span>工夫した点：</span>タブをタップ（クリック）で切り替わることがわかりやすく。</li>
+                    <li><span>その他：</span>一枚画像の制作も、先述の一括変換のJSを組み込んだテキストベースにすることも可能。</li>
+                </ul>
+                
+            </div>
+
+            <div class="product-section" style="margin-top: 40px; padding: 20px; background: #fafafa; border-radius: 8px;">
+                <div class="product-header">
+                  <p class="brand-name">by Happy Morning</p>
+                  <h2 class="tab_titel">ふわふわホットケーキセット</h2>
+                  <img src="img/web/tab_top.webp" alt="今なら最大35％OFF！※こちらは架空のブランド商品になります。実際にはお買い求めいただけません。">
+                </div>
+              
+                <ul class="tab-buttons">
+                  <li class="tab-btn active" data-target="tab-single">
+                    単品<span class="badge normal">まずはお試し</span>
+                  </li>
+                  <li class="tab-btn" data-target="tab-pair">
+                    2人前セット<span class="badge">おすすめ</span>
+                  </li>
+                  <li class="tab-btn" data-target="tab-family">
+                    ファミリー4人前<span class="badge alert">一番お得</span>
+                  </li>
+                </ul>
+              
+                <div class="tab-content-wrapper">
+                  
+                  <div id="tab-single" class="tab-panel active">
+                    <div class="panel-image">
+                        <a href="img/web/tab_001.webp" class="art-zoom-link">
+                      <img src="img/web/tab_001.webp" alt="単品ホットケーキ">
+                      </a>
+                    </div>
+                    <div class="panel-info">
+                      <p class="catchphrase">初めての方に。シンプルに美味しい基本のミックス粉。</p>
+                      <div class="price-box">
+                        <span class="old-price">980円</span>
+                        <span class="new-price">780<span class="yen">円</span></span>
+                        <span class="discount-tag">キャンペーン中！</span>
+                      </div>
+                      <div class="contents-box">
+                        <h3>セット内容</h3>
+                        <ul>
+                          <li>ホットケーキミックス200g（約8枚分）</li>
+                        </ul>
+                      </div>
+
+                      <button class="cart-btn js-open-chat" data-product="単品（ミックス粉のみ）">このセットをカートに入れる</button>
+                    </div>
+                  </div>
+              
+                  <div id="tab-pair" class="tab-panel">
+                    <div class="panel-image">
+                    <a href="img/web/tab_002.webp" class="art-zoom-link">
+                        <img src="img/web/tab_002.webp" alt="2人前セット">
+                      </a>
+                    </div>
+                    <div class="panel-info">
+                      <p class="catchphrase">休日のブランチに。シロップたっぷりでリッチに！</p>
+                      <div class="price-box">
+                        <span class="old-price">2,200円</span>
+                        <span class="new-price">1,650<span class="yen">円</span></span>
+                        <span class="discount-tag">25%OFF</span>
+                      </div>
+                      <div class="contents-box">
+                        <h3>セット内容</h3>
+                        <ul>
+                          <li>ホットケーキミックス400g</li>
+                          <li>メープルシロップ200ml</li>
+                          <li>トッピングナッツ</li>
+                        </ul>
+                      </div>
+                      <button class="cart-btn js-open-chat" data-product="2人前セット">このセットをカートに入れる</button>
+                    </div>
+                  </div>
+              
+                  <div id="tab-family" class="tab-panel">
+                    <div class="panel-image">
+                        <a href="img/web/tab_003.webp" class="art-zoom-link">
+                            <img src="img/web/tab_003.webp" alt="ファミリーセット">
+                        </a>
+                    </div>
+                    <div class="panel-info">
+                      <p class="catchphrase">家族みんなの朝食にぴったり！トッピング全部乗せの贅沢セット。</p>
+                      <div class="price-box">
+                        <span class="old-price">4,200円</span>
+                        <span class="new-price">2,730<span class="yen">円</span></span>
+                        <span class="discount-tag">35%OFF</span>
+                      </div>
+                      <div class="contents-box">
+                        <h3>セット内容</h3>
+                        <ul>
+                          <li>ホットケーキミックス800g</li>
+                          <li>メープルシロップ400ml</li>
+                          <li>トッピングナッツ</li>
+                          <li>ホイップクリーム</li>
+                          <li>フルーツソース</li>
+                        </ul>
+                      </div>
+                      <button class="cart-btn js-open-chat" data-product="ファミリー4人前セット">このセットをカートに入れる</button>
+                    </div>
+                  </div>
+              
+                </div>
+                <div id="dummy-chatbot" class="chatbot-window">
+                    <div class="chatbot-header">
+                        <span>🥞 ご購入サポート（デモ）🥞</span>
+                        <button id="close-chat" class="close-btn" aria-label="閉じる">&times;</button>
+                    </div>
+                    <div class="chatbot-body">
+                        <div class="chat-message bot">
+                            いらっしゃいませ！<br>
+                            こちらからご購入手続きが可能です。<br>
+                            <strong id="chat-selected-item" style="color:#d35400;">未選択</strong>
+                        </div>
+                        <div class="chat-input-area">
+                            <label for="chat-item-select" style="font-size: 0.8em; color: #666;">ご希望の商品（変更可能）</label>
+                            <select id="chat-item-select" class="chat-select">
+                                <option value="">商品を選んでください</option>
+                                <option value="単品（ミックス粉のみ）">単品（ミックス粉のみ）</option>
+                                <option value="2人前セット">2人前セット</option>
+                                <option value="ファミリー4人前セット">ファミリー4人前セット</option>
+                            </select>
+                            <button class="chat-send-btn" onclick="alert('※ポートフォリオ用のデモのため、実際の送信はされません。')">購入手続きへ進む</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+
+        <section class="container section-reveal reveal-right" id="movie-gallery-section">
+            <div class="work-description">
+                <h2 class="work-title">離脱を防ぐ動画ギャラリー導線設計<br><span>（モーダル再生・商品導線の最適化）</span></h2>
+                <p class="description-text">商品理解を促すための使い方動画ページを実装しました。<br>
+                    動画一覧UIとYouTubeモーダル再生を組み合わせ、視聴中の離脱を防ぎつつ、商品ページへの導線を自然につなげられる構成を意識しています。<br>
+                    <span class="demo-notice">※以下はモーダルの動作確認用サンプルのため、Youtube公式動画を埋め込んでいます。</span></p>
+                <h3 class="sub-title">担当領域・実装のポイント</h3>
+                <ul class="art-spec" style="margin-top: 15px; padding: 15px; background: #fdfdfd; border: 1px solid #eee; border-radius: 8px;">
+                    <li><span>担当箇所：</span>HTML / CSS / JavaScript / 動画一覧UIの構築 / YouTubeモーダル表示の実装 / スマホ閲覧を前提にしたレイアウト調整 / 既存商品ページへの導線設計</li>
+                    <li><span>工夫した点：</span>ページ遷移によるストレスをなくすため、JavaScriptを用いてモーダル内での動画再生（YouTube iframeの制御）を実装しました。</li>
+                    <li><span>レスポンシブ対応：</span>ヘッダー画像→動画一覧→商品ページへの導線で、使い方確認から商品導線へ戻れる流れを意識した。</li>
+                </ul>
+            </div>
+            <div class="video-row">
+            <div class="demo-video-thumbnail js-youtube-open" data-youtube-id="R7r2h6IjhFo">
+                <img src="https://img.youtube.com/vi/R7r2h6IjhFo/maxresdefault.jpg" alt="アフタームービーサムネイル">
+                <div class="play-button"></div>
+            </div>
+
+            <div class="demo-video-thumbnail js-youtube-open" data-youtube-id="HFRMcvNxyH0">
+                <img src="https://img.youtube.com/vi/HFRMcvNxyH0/maxresdefault.jpg" alt="【Google & Nintendo presents】YouTube Gaming Replay 2025 サムネイル">
+                <div class="play-button"></div>
+            </div>
+            </div>
+        </section>
+
+        <section class="container section-reveal reveal-left" id="column-lp-section">
+            <div class="work-description">
+                <h2 class="work-title">記事型LP実装<br><span>（読了率・CVR最適化を意識したモバイルファースト実装）</span></h2>
+                <p class="description-text">
+                    SNS広告等からの流入を受け止める「記事型LP（コラムページ）」の実装を担当しました。<br>
+                    長文コンテンツや多数のGIFアニメーションを含む縦長のページ構成において、ユーザーの離脱を防ぐための「読みやすい余白設計」「スマートフォンでの最適なテキスト改行・文字サイズ」を徹底。<br>
+                    単にデザインを再現するだけでなく、「いかにストレスなく最後まで読ませ、最終的な購入（CTA）へ繋げるか」というWebマーケティングの視点を取り入れたコーディングを行っています。
+                </p>               
+                <h3 class="sub-title">担当領域・実装のポイント</h3>
+                <ul class="art-spec" style="margin-top: 15px; padding: 15px; background: #fdfdfd; border: 1px solid #eee; border-radius: 8px;">
+                    <li><span>担当箇所：</span>HTML / CSS</li>
+                    <li><span>読了率の向上：</span>スクロール時のリズムを崩さないよう、見出し、画像、テキスト間のマージンを細かく調整し、視線誘導を意識したレイアウトを構築しました。</li>
+                    <li><span>パフォーマンスへの配慮：</span>多数のGIF画像を使用するページ仕様のため、読み込み遅延による直帰を防ぐための適切な画像配置・コーディングを意識しています。</li>
+                    <li><span>マーケティング視点：</span>最終的なコンバージョン（ECショップ等への遷移）ボタンが最もクリックされやすいよう、ボタン周辺の余白や見せ方を最適化しました。</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <button id="js-page-top" class="page-top-btn" aria-label="ページトップへ戻る">
+        <span class="arrow-up"></span>
+    </button>
+    <div class="art-viewer-overlay" id="js-art-viewer-overlay">
+        <span class="art-viewer-close" id="js-art-viewer-close">&times;</span>
+        <img id="art-viewer-img" src="" alt="拡大画像">
+    </div>
+
+    <div class="video-modal" id="js-youtube-modal">
+        <div class="video-modal-overlay" id="js-youtube-overlay"></div>
+        <div class="video-modal-content" style="max-width: 800px;">
+            <button class="video-modal-close" id="js-youtube-close">&times;</button>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); background-color: #000;">
+                <iframe id="js-youtube-player" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Portfolio </p>
+    </footer>
+    
+
+<script src="js/main.js"></script>
+</body>
+</html>

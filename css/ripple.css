@@ -1,0 +1,374 @@
+/* リセットと基本設定 */
+body {
+  margin: 0;
+  font-family: "游明朝", "Yu Mincho", "Noto Serif JP", serif;
+  background-color: #fdfcf5;
+}
+
+/* ヒーローセクション全体の枠組み */
+.hero-drama {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #223044; /* ベースを夜の青に */
+}
+
+/* ----------------------------------
+   シーン1: 暗闇 (悩み)
+----------------------------------- */
+.scene-dark {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.text-dark {
+  color: #fff;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  /* 4秒かけてフワッと現れ、そして消える */
+  animation: fadeInOut 4s ease-in-out forwards; 
+}
+
+/* ----------------------------------
+   シーン2: じわっと広がる緑 (解決)
+----------------------------------- */
+.scene-green-soft {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  /* アニメーション完了までクリック判定を無効化 */
+  pointer-events: none; 
+}
+
+/* 境界線がぼやけた「お茶の抽出」背景 */
+.tea-spread-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200vmax; /* 画面全体を確実に覆い尽くす巨大なサイズ */
+  height: 200vmax;
+  
+  /* 中央は濃い緑、外側に行くほど透明になる円形グラデーション */
+  background: radial-gradient(circle, #3f5d2e 40%, rgba(63, 93, 46, 0.8) 60%, rgba(63, 93, 46, 0) 80%);
+  border-radius: 50%;
+  
+  /* 初期状態は極小サイズで透明 */
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  
+  /* シーン1のテキストが消えかかる頃（3.5秒後）に、3.5秒かけてじっくり広がる */
+  animation: softSpread 3.5s ease-out 3.5s forwards;
+}
+
+/* 緑の背景の中のコンテンツ */
+.green-content {
+  text-align: center;
+  color: #fdfcf5;
+  z-index: 3; /* 背景より手前に配置 */
+}
+
+.text-green-catch {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+  opacity: 0;
+  /* 背景が十分に広がった後（5秒後）に浮かび上がる */
+  animation: fadeIn 1.5s ease-out 5s forwards;
+}
+
+.brand-block {
+  opacity: 0;
+  transform: translateY(20px);
+  /* キャッチコピーのさらに後（6秒後）に下から浮かび上がる */
+  animation: steamUp 1.5s ease-out 6s forwards;
+}
+
+/* ----------------------------------
+   キーフレーム（アニメーション制御）
+----------------------------------- */
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes softSpread {
+  0% { 
+    transform: translate(-50%, -50%) scale(0); 
+    opacity: 0; 
+  }
+  20% { 
+    opacity: 1; /* 早めに色はしっかり出す */
+  }
+  100% { 
+    transform: translate(-50%, -50%) scale(1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; pointer-events: auto; }
+}
+
+@keyframes steamUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* ----------------------------------
+   ベース設定の変更（背景トランジション）
+----------------------------------- */
+body {
+  /* 背景色の変化を2秒かけて「じわっ」と切り替える */
+  transition: background-color 2s ease-in-out;
+  /* 初期色は一番薄いベースカラー */
+  background-color: #fdfcf5; 
+}
+
+.container {
+  /* 変更前: max-width: 1000px; */
+  max-width: 750px; /* ここを750pxに変更するだけ */
+  margin: 0 auto;
+  padding: 0 20px; /* スマホで見たときに画面端に文字がくっつかないための余白 */
+}
+
+/* ----------------------------------
+   Empathy (共感) セクション
+----------------------------------- */
+.empathy-section {
+  padding: 120px 0;
+  text-align: center;
+}
+
+.empathy-text {
+  font-size: 1.2rem;
+  line-height: 2.2;
+  color: #4a3b32;
+  letter-spacing: 0.1em;
+}
+
+.mt-4 { margin-top: 2rem; }
+.strong-text {
+  font-size: 1.4rem;
+  color: #3f5d2e; /* ブランドカラーで優しく強調 */
+}
+
+/* ----------------------------------
+   スクロール連動フェードイン (共通部品)
+----------------------------------- */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----------------------------------
+   シルエット（背景の装飾）
+----------------------------------- */
+.silhouette-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; /* クリックを邪魔しない */
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* 茶葉や水滴を抽象化したオーガニックな図形 */
+.silhouette {
+  position: absolute;
+  background-color: #7c9c6d;
+  opacity: 0; /* 初期は非表示 */
+  filter: blur(8px); /* ぼかしを入れてピントが合っていない背景感を作る */
+  transition: opacity 2s ease-in-out, transform 3s ease-out;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* 自然な歪み */
+}
+
+/* 画面内の配置位置 */
+.item1 { width: 150px; height: 150px; top: 20%; left: -50px; transform: rotate(15deg) translateY(50px); }
+.item2 { width: 250px; height: 200px; top: 60%; right: -80px; transform: rotate(-20deg) translateY(50px); }
+.item3 { width: 100px; height: 120px; bottom: 10%; left: 30%; transform: rotate(45deg) translateY(50px); }
+
+/* スクロールで表示された時の状態 */
+.silhouette.is-visible {
+  opacity: 0.05; /* ギリギリ見える程度の極めて薄い不透明度 */
+  transform: translateY(0) rotate(0deg); /* ふわっと定位置へ */
+}
+
+/* ----------------------------------
+   診断セクション (1カラム縦積み仕様)
+----------------------------------- */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* フォームと結果の間隔 */
+}
+
+.quiz-step {
+  border: none;
+  margin-bottom: 40px;
+  padding: 0;
+}
+
+.quiz-step legend {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3b2f28;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+/* スマホで押しやすいカード型ラジオボタン */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-card {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+/* デフォルトの丸ポチは隠す */
+.radio-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* 選択肢の見た目 */
+.radio-card span {
+  display: block;
+  padding: 15px 20px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+/* 選択された時のデザイン（ブランドカラーに染まる） */
+.radio-card input[type="radio"]:checked + span {
+  border-color: #7c9c6d;
+  background-color: #f4f6f0;
+  color: #3f5d2e;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(124, 156, 109, 0.2);
+}
+
+/* ボタンの横幅を100%にするユーティリティ */
+.btn-block {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.mt-2 { margin-top: 10px; }
+
+/* ----------------------------------
+   診断結果カード
+----------------------------------- */
+.result-card {
+  background-color: #fff;
+  border: 2px solid #7c9c6d; /* 結果を目立たせる */
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.result-top .tag {
+  display: inline-block;
+  background-color: #7c9c6d;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.result-title {
+  font-size: 1.5rem;
+  color: #3f5d2e;
+  margin-bottom: 15px;
+}
+
+.result-desc {
+  font-size: 1rem;
+  color: #4a3b32;
+  margin-bottom: 25px;
+}
+
+.result-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  text-align: left;
+  background: #fdfcf5;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.result-points li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.result-points li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #7c9c6d;
+  font-weight: bold;
+}
+
+.quiz-button {
+  /* 1. 太くする */
+  padding: 15px 30px; /* 上下左右の余白 */
+
+  /* 2. アレンジする */
+  width: calc(100% - 左右の余白); /* 横幅 */
+  margin: 0 auto; /* 中央配置 */
+  display: block; /* ブロック要素にする */
+
+  /* 3. テキストを大きくする */
+  font-size: 1.1em; /* フォントサイズ */
+  font-weight: bold; /* 太字にする (任意) */
+  text-align: center; /* 中央揃え */
+
+  /* 4. その他のアレンジ */
+  background-color: #f0f0f0; /* 背景色 */
+  border: 1px solid #ccc; /* 枠線 */
+  border-radius: 5px; /* 角を丸くする */
+  cursor: pointer; /* カーソルをポインターにする */
+  transition: background-color 0.3s ease; /* ホバー効果のトランジション */
+}
+
+/* ホバー効果 */
+.quiz-button:hover {
+  background-color: #e0e0e0; /* 背景色を少し変える */
+}

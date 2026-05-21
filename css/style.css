@@ -1209,6 +1209,10 @@ footer {
     font-weight: bold;
 }
 
+.ai-spec li ol{
+    margin-left: 3rem;
+}
+
 /* demo.html: section.container 単位のスクロール演出 */
 .section-reveal {
     opacity: 0;

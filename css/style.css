@@ -168,6 +168,11 @@ h1 a:hover {
     line-height: 2;
 }
 
+.profile-achievement-list{
+    list-style: none;
+    margin-left: 1vw;
+}
+
 /* メインコンテンツ */
 .hero {
     display: flex;

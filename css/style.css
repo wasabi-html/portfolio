@@ -224,6 +224,10 @@ h2 {
     margin-bottom: 15px;
 }
 
+.work-description ol, ul{
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+}
 /* 共通：角丸ボタンのベース */
 .btn-detail, .btn-more {
     display: inline-block;
